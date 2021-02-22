@@ -1,0 +1,28 @@
+server:
+  port: 8111
+
+spring:
+    bootstrap-servers: localhost:9092  # 192.168.56.107:9092,192.168.56.107:9093,192.168.56.107:9094
+    consumer:
+      group-id: gvpro-consumer
+      auto-offset-reset: earliest  # kafka 에서 메세지를 가져오는 consumer의 offset정보가 존재하지 않는 경우의 처리 방법(- latest : 가장 마지막 offset부터, earliest : 가장 처음 offset부터, none : offset 없다면 에러 발생
+      enable-auto-commit: true     # kafka 에서 메세지를 받고 자동으로 ACK 를 전송 여부 설정(true = 자동으로, false = 별도로 코드 구성 필요)
+      #      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      #      value-deserializer: org.apache.kafka.common.serialization.JsonDeserializer
+      max-poll-records: 1000
+    #    producer:
+    #      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    #      value-serializer: org.apache.kafka.common.serialization.JsonSerializer
+
+logging:
+  level:
+    root: INFO
+    jdbc: OFF
+    jdbc.connection: OFF
+    jdbc.sqlonly: OFF
+    jdbc.sqltiming: DEBUG
+    jdbc.audit : OFF
+    jdbc.resultset : OFF
+    jdbc.resultsettable: OFF
+    org.springframework.web: DEBUG
+    com.zaxxer.hikari.HikariDataSource: ERROR
