@@ -1,4 +1,4 @@
-package vmsa.kproducer.vo;
+package vmsa.lapproval.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
